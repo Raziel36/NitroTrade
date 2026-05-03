@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 1. Include the Telegram SDK so the portal can talk to your bot -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
+    <!-- 2. Include the Monetag SDK from your dashboard -->
+    <script src="https://alwingulla.com/88/p.js"></script>
+</head>
+<body style="background: #000; color: #fff; text-align: center; padding-top: 50px;">
+    <h2>🚀 Nitro Boost Active</h2>
+    <p>Loading your video extraction...</p>
+
+    <script>
+        // Initialize the Telegram WebApp interface
+        const tg = window.Telegram.WebApp;
+        tg.expand(); // Makes the window full-screen
+
+        // YOUR CODE GOES HERE:
+        // This triggers the rewarded video using your Zone ID: 10933630
+        show_10933630().then(() => {
+            // This sends a "success" message back to your main.py
+            tg.sendData(JSON.stringify({action: "reward_user", amount: 50}));
+            
+            alert('Extraction Successful! +50 Coins.');
+            tg.close(); // Closes the portal automatically
+        }).catch(e => {
+            console.error('Video ad failed:', e);
+            alert('Ad failed to load. Try again in a moment.');
+            tg.close();
+        });
+    </script>
+</body>
+</html>
